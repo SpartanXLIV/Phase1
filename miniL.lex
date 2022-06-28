@@ -6,6 +6,8 @@
 
    /* some common rules */
 
+	/* WHO CAN IT BE NOW */
+
 %%
    /* specific lexer rules in regex */
 
