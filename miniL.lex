@@ -10,7 +10,7 @@ DIGIT   [0-9]
 
 CHAR    [a-zA-Z]
                                 /*if he hears he'll knock all day*/
-COMMENT [##.*]
+COMMENT ##.*
 
 
 
@@ -89,7 +89,7 @@ COMMENT [##.*]
 
 {CHAR}+         {printf("STRING %s\n", yytext); currPos += yyleng;}
 
-{COMMENT}+      {printf("COMMENT %s\n", yytext); currPos += yyleng;}
+{COMMENT}      	{currLine++; currPos = 1;}
 
         /* Here they come, THOSE FEELINGS AGAIN*/
 
