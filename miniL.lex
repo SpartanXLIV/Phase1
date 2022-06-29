@@ -91,6 +91,13 @@ COMMENT ##.*
 
 {COMMENT}      	{currLine++; currPos = 1;}
 
+
+[a-zA-Z][a-zA-Z0-9_]*[a-zA-Z0-9]        {printf("IDENT %s\n", yytext); currPos += yyleng;}
+
+[0-9_][a-zA-Z0-9_]*		{printf("Error at line %d, column %d: identifier \"%s\" must begin with a letter\n", currLine, currPos, yytext); exit(0);}
+
+[a-zA-Z][a-zA-Z0-9_]*[_]	{printf("Error at line %d, column %d: identifier \"%s\" cannot end with an underscore\n", currLine, currPos, yytext); exit(0);}
+
         /* Here they come, THOSE FEELINGS AGAIN*/
 
 "\n"            {currLine++; currPos = 1;}
