@@ -7,8 +7,6 @@
  /* some common rules */
 
 DIGIT   [0-9]
-
-CHAR    [a-zA-Z]
                                 /*if he hears he'll knock all day*/
 COMMENT ##.*
 
@@ -86,8 +84,6 @@ COMMENT ##.*
 [ \t]+          {/* ignore spaces */ currPos += yyleng;}
 
         /* I'll be trapped and here I'll have to stay */
-
-{CHAR}+         {printf("STRING %s\n", yytext); currPos += yyleng;}
 
 {COMMENT}      	{currLine++; currPos = 1;}
 
