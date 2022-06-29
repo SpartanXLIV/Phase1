@@ -88,7 +88,7 @@ COMMENT ##.*
 {COMMENT}      	{currLine++; currPos = 1;}
 
 
-[a-zA-Z]*[a-zA-Z0-9_]*[a-zA-Z0-9]        {printf("IDENT %s\n", yytext); currPos += yyleng;}
+[a-zA-Z]([a-zA-Z0-9_]*[a-zA-Z0-9])*         {printf("IDENT %s\n", yytext); currPos += yyleng;}
 
 [0-9_][a-zA-Z0-9_]*		{printf("Error at line %d, column %d: identifier \"%s\" must begin with a letter\n", currLine, currPos, yytext); exit(0);}
 
