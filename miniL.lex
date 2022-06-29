@@ -95,7 +95,7 @@ COMMENT [##.*]
 
 "\n"            {currLine++; currPos = 1;}
 
-.               {printf("Error at line %d, column %d: unrecognized symbol\n "); currPos += yyleng;}
+.               {printf("Error at line %d, column %d: unrecognized symbol \"%s\" \n", currLine, currPos, yytext); exit(0);}
 
 %%
 
